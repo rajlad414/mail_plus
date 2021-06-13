@@ -1,8 +1,10 @@
+// @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mail_plus/screens/register_page.dart';
+import 'package:mail_plus/screens/signin_page.dart';
 import 'package:mail_plus/widgetss/my_text_button.dart';
 import '../widgetss/constants.dart';
-import '../screens/screen.dart';
 import '../widgetss/widget.dart';
 
 class WelcomePage extends StatelessWidget {

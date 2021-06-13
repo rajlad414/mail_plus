@@ -24,9 +24,12 @@ class _OutboxState extends State<Outbox> {
   Widget build(BuildContext context) {
     if(mails.isEmpty) return Scaffold(
         drawer:CustomDrawer(),
-        appBar: PreferredSize(preferredSize: Size.fromHeight(60.0),
-            child: CustomAppBar("Outbox",false)),
-        body: EmptyPage(),
+        body: Column(
+          children: [
+             CustomAppBar("Outbox",false),
+            EmptyPage(),
+          ],
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,
@@ -43,25 +46,28 @@ class _OutboxState extends State<Outbox> {
 
     else return Scaffold(
         drawer: CustomDrawer(),
-        appBar: PreferredSize(preferredSize: Size.fromHeight(60.0),
-            child: CustomAppBar("Outbox",false)),
-        body: ListView.builder(
-          itemCount: mails.length,
-          shrinkWrap: true,
-          padding: EdgeInsets.only(top: 16),
-          itemBuilder: (context, index){
-            return ConversationList(mails[index].from,
-                mails[index].subject,
-                mails[index].message,
-                mails[index].time,
-                mails[index]._isread,
-                mails[index]._isarchived,
-                mails[index]._isinfo,
-                mails[index]._isimportant,
-                mails[index]._isfollowup,
-                mails[index].to
-            );
-          },
+        body: Column(
+          children: [
+             CustomAppBar("Outbox",false),
+            ListView.builder(
+              itemCount: mails.length,
+              shrinkWrap: true,
+              padding: EdgeInsets.only(top: 16),
+              itemBuilder: (context, index){
+                return ConversationList(mails[index].from,
+                    mails[index].subject,
+                    mails[index].message,
+                    mails[index].time,
+                    mails[index]._isread,
+                    mails[index]._isarchived,
+                    mails[index]._isinfo,
+                    mails[index]._isimportant,
+                    mails[index]._isfollowup,
+                    mails[index].to
+                );
+              },
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {

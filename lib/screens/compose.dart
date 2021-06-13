@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:mail_plus/screens/inbox.dart';
+import 'package:mail_plus/widgets/widgets.dart';
 
 class Compose extends StatefulWidget {
   const Compose({Key? key}) : super(key: key);
@@ -11,23 +12,25 @@ class Compose extends StatefulWidget {
 }
 
 class _ComposeState extends State<Compose> {
-  bool bccCc=false;
+  bool bccCc = false;
   bool isChecked = false;
-  void bccCcVisible(){
+  void bccCcVisible() {
     setState(() {
-      bccCc=!bccCc;
+      bccCc = !bccCc;
     });
   }
-  void makeCheck(){
+
+  void makeCheck() {
     setState(() {
-      isChecked=!isChecked;
+      isChecked = !isChecked;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        flexibleSpace: GradientContainer(Container()),
         automaticallyImplyLeading: true,
         title: Container(
           padding: EdgeInsets.only(right: 16),
@@ -53,13 +56,15 @@ class _ComposeState extends State<Compose> {
                     icon: Icon(
                       Icons.attach_file_outlined,
                       color: Colors.white,
-                    ), onPressed: () {  },
+                    ),
+                    onPressed: () {},
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.send_rounded,
                       color: Colors.white,
-                    ), onPressed: () {  },
+                    ),
+                    onPressed: () {},
                   ),
                   PopupMenuButton(
                     icon: Icon(
@@ -70,7 +75,9 @@ class _ComposeState extends State<Compose> {
                       return [
                         PopupMenuItem(
                           value: 'Add Bcc/Cc',
-                          child: bccCc?Text('Remove Bcc/Cc'):Text('Add Bcc/Cc'),
+                          child: bccCc
+                              ? Text('Remove Bcc/Cc')
+                              : Text('Add Bcc/Cc'),
                         ),
                         PopupMenuItem(
                           value: 'Insert Templates',
@@ -84,7 +91,7 @@ class _ComposeState extends State<Compose> {
                               Text("Priority"),
                               Icon(
                                 Icons.arrow_forward_ios_rounded,
-                                size:14,
+                                size: 14,
                               ),
                             ],
                           ),
@@ -115,45 +122,41 @@ class _ComposeState extends State<Compose> {
                       ];
                     },
                     onSelected: (String value) {
-                      if(value=="Add Bcc/Cc") bccCcVisible();
-                      if(value=="Insert Templates") {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) {
+                      if (value == "Add Bcc/Cc") bccCcVisible();
+                      if (value == "Insert Templates") {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
                           return Inbox();
                         }));
                       }
-                      if(value=="Ask Receipt"){
+                      if (value == "Ask Receipt") {
                         setState(() {
                           isChecked = !isChecked;
                         });
                       }
-                      if(value=="Priority"){
-                      List<String> pri=["High","Medium","Low"];
-                      showDialog<String>(
-                              context: context,
-                              barrierDismissible: true,
-                              builder: (BuildContext context) {
-                                return SimpleDialog(
-                                  title: const Text('Select Priority'),
-                                  children: <Widget>[
-                                    SimpleDialogOption(
-                                      onPressed: () {
-                                      },
-                                      child: const Text('High'),
-                                    ),
-                                    SimpleDialogOption(
-                                      onPressed: () {
-                                      },
-                                      child: const Text('Medium'),
-                                    ),
-                                    SimpleDialogOption(
-                                      onPressed: () {
-                                      },
-                                      child: const Text('Low'),
-                                    ),
-                                  ],
-                                );
-                              });
+                      if (value == "Priority") {
+                        List<String> pri = ["High", "Medium", "Low"];
+                        showDialog<String>(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return SimpleDialog(
+                                title: const Text('Select Priority'),
+                                children: <Widget>[
+                                  SimpleDialogOption(
+                                    onPressed: () {},
+                                    child: const Text('High'),
+                                  ),
+                                  SimpleDialogOption(
+                                    onPressed: () {},
+                                    child: const Text('Medium'),
+                                  ),
+                                  SimpleDialogOption(
+                                    onPressed: () {},
+                                    child: const Text('Low'),
+                                  ),
+                                ],
+                              );
+                            });
                       }
                     },
                   ),
@@ -232,7 +235,9 @@ class _ComposeState extends State<Compose> {
                   borderSide: BorderSide(color: Colors.grey.shade300)),
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           TextField(
             textAlign: TextAlign.justify,
             scrollPadding: EdgeInsets.all(8),

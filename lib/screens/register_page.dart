@@ -1,7 +1,9 @@
+// @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:mail_plus/screens/signin_page.dart';
+import 'package:mail_plus/widgets/widgets.dart';
 import '../widgetss/widget.dart';
 import '../widgetss/constants.dart';
 
@@ -16,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        flexibleSpace: GradientContainer(null),
         elevation: 0,
         leading: IconButton(
           onPressed: () {
@@ -77,7 +79,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               });
                             },
                           ),
-
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -86,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 style: kBodyText,
                               ),
                               GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   Navigator.push(
                                       context,
                                       CupertinoPageRoute(

@@ -1,6 +1,7 @@
 // @dart=2.9
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:mail_plus/widgets/widgets.dart';
 
 class Read extends StatefulWidget {
   String from, subject, message, time;
@@ -42,6 +43,7 @@ class _ReadState extends State<Read> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
+        flexibleSpace: GradientContainer(null),
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.end,

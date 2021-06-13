@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mail_plus/widgets/widgets.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
@@ -22,19 +23,30 @@ class _CalenderState extends State<Calender> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: GradientContainer(Container()),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Calendar'), 
+            Text('Calendar'),
             Row(
               children: [
-                IconButton(icon: Icon(Icons.date_range), onPressed: () {  },),
-                SizedBox(width: 10,),
-                IconButton(icon: Icon(Icons.refresh), onPressed: () {  },),
-                SizedBox(width: 10,),
+                IconButton(
+                  icon: Icon(Icons.date_range),
+                  onPressed: () {},
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                IconButton(
+                  icon: Icon(Icons.refresh),
+                  onPressed: () {},
+                ),
+                SizedBox(
+                  width: 10,
+                ),
                 PopupMenuButton(
                     icon: Icon(Icons.menu),
-                    itemBuilder: (context){
+                    itemBuilder: (context) {
                       return [
                         PopupMenuItem(
                           value: 'Time',
@@ -103,7 +115,18 @@ class _CalenderState extends State<Calender> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  colors: [
+                    const Color(0xFF380036),
+                    const Color(0xFF0cbaba),
+                  ],
+                )),
+            child: Icon(Icons.add)),
       ),
     );
   }

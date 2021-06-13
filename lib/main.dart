@@ -1,7 +1,6 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mail_plus/screens/screen.dart';
+import 'package:mail_plus/screens/welcome_page.dart';
 import 'package:mail_plus/widgetss/constants.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:WelcomePage(),
+      home: WelcomePage(),
     );
   }
 }

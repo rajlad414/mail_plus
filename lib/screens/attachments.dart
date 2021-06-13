@@ -10,18 +10,18 @@ class Attachments extends StatefulWidget {
 }
 
 class _AttachmentsState extends State<Attachments> {
-  List<Mail> mails=[
-
-  ];
+  List<Mail> mails = [];
   bool isMessageRead = true;
   @override
   Widget build(BuildContext context) {
-    if(mails.isEmpty) return Scaffold(
-        drawer:CustomDrawer(),
-        appBar: PreferredSize(preferredSize: Size.fromHeight(60.0),
-            child: CustomAppBar("Attachments",false)),
-        body: Center(
-            child: Column(
+    if (mails.isEmpty)
+      return Scaffold(
+        drawer: CustomDrawer(),
+        body: Column(
+          children: [
+            CustomAppBar("Attachments", false),
+            Center(
+                child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -38,17 +38,23 @@ class _AttachmentsState extends State<Attachments> {
                 Text(
                   "You have no attachments over here.",
                   style: TextStyle(
-                      color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold),
+                      color: Colors.grey,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 )
               ],
             )),
-    );
-
-    else return Scaffold(
-        drawer: CustomDrawer(),
-        appBar: PreferredSize(preferredSize: Size.fromHeight(60.0),
-            child: CustomAppBar("Attachments",false)),
-        body: Container()
-    );
+          ],
+        ),
+      );
+    else
+      return Scaffold(
+          drawer: CustomDrawer(),
+          body: Column(
+            children: [
+              CustomAppBar("Attachments", false),
+              Container(),
+            ],
+          ));
   }
 }

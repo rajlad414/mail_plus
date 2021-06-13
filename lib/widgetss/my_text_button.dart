@@ -20,6 +20,12 @@ class MyTextButton extends StatelessWidget {
       height: 60,
       width: double.infinity,
       decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            const Color(0xFF380036),
+            const Color(0xFF0cbaba),
+          ],
+        ),
         color: bgColor,
         borderRadius: BorderRadius.circular(18),
       ),

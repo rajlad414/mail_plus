@@ -1,8 +1,10 @@
+// @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mail_plus/screens/inbox.dart';
+import 'package:mail_plus/screens/register_page.dart';
+import 'package:mail_plus/widgets/widgets.dart';
 import '../widgetss/constants.dart';
-import '../screens/screen.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import '../widgetss/widget.dart';
 
@@ -17,8 +19,8 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         elevation: 0,
+        flexibleSpace: GradientContainer(null),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
