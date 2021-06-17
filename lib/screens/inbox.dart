@@ -95,7 +95,7 @@ class InboxState extends State<Inbox> {
               ),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
   }
 }
 

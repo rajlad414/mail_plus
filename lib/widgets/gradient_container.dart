@@ -16,8 +16,8 @@ class _GradientContainerState extends State<GradientContainer> {
       decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [
-                const Color(0xFF380036),
-                const Color(0xFF0cbaba),
+                const Color(0xFF000000),
+                const Color(0xFFFFFFFF),
               ],
               begin: const FractionalOffset(0.0, 1.0),
               end: const FractionalOffset(1.0, 0.0),

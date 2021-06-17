@@ -30,7 +30,7 @@ class _SentState extends State<Sent> {
               EmptyPage(),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
     else
       return Scaffold(
           drawer: CustomDrawer(),
@@ -57,7 +57,7 @@ class _SentState extends State<Sent> {
               ),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
   }
 }
 

@@ -30,7 +30,7 @@ class _UnreadState extends State<Unread> {
               EmptyPage(),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
     else
       return Scaffold(
           drawer: CustomDrawer(),
@@ -57,7 +57,7 @@ class _UnreadState extends State<Unread> {
               ),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
   }
 }
 

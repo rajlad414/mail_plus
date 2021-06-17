@@ -31,7 +31,7 @@ class _TemplatesState extends State<Templates> {
               EmptyPage(),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
     else
       return Scaffold(
           drawer: CustomDrawer(),
@@ -58,7 +58,7 @@ class _TemplatesState extends State<Templates> {
               ),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
   }
 }
 

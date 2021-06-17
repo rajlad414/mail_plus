@@ -33,7 +33,7 @@ class _DraftState extends State<Draft> {
           body: Column(
             children: [CustomAppBar("Draft", false), EmptyPage()],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
     else
       return Scaffold(
           drawer: CustomDrawer(),
@@ -60,7 +60,7 @@ class _DraftState extends State<Draft> {
               ),
             ],
           ),
-          floatingActionButton: CustomFloatingActionButton());
+          floatingActionButton: CustomFloatingActionButton(Icons.edit_rounded));
   }
 }
 

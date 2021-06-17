@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mail_plus/screens/compose.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
-  const CustomFloatingActionButton() : super();
+  IconData icon_name;
+  CustomFloatingActionButton(this.icon_name);
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +20,12 @@ class CustomFloatingActionButton extends StatelessWidget {
             shape: BoxShape.circle,
             gradient: LinearGradient(
               colors: [
-                const Color(0xFF380036),
-                const Color(0xFF0cbaba),
+                const Color(0xFF000000),
+                const Color(0xFFFFFFFF),
               ],
             )),
         child: Icon(
-          Icons.edit_rounded,
+          icon_name,
           color: Colors.white,
         ),
       ),
