@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:mail_plus/screens/inbox.dart';
+import 'package:mail_plus/widgets/sending_mail.dart';
 import 'package:mail_plus/widgets/widgets.dart';
 
 class Compose extends StatefulWidget {
@@ -12,6 +14,8 @@ class Compose extends StatefulWidget {
 }
 
 class _ComposeState extends State<Compose> {
+  TextEditingController subject = TextEditingController();
+  TextEditingController message = TextEditingController();
   int _selectedIndex = 1;
   List<Mails> mails = [
     Mails(
@@ -169,15 +173,62 @@ class _ComposeState extends State<Compose> {
                   child: Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          CustomFloatingActionButton(Icons.attach_file_rounded),
-                          SizedBox(
-                            width: 15,
+                          Row(
+                            children: [
+                              CustomFloatingActionButton(
+                                  Icons.file_copy_rounded),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              CustomFloatingActionButton(Icons.image),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              CustomFloatingActionButton(
+                                  Icons.video_camera_back_rounded),
+                              SizedBox(
+                                width: 15,
+                              ),
+                            ],
                           ),
-                          CustomFloatingActionButton(Icons.send_rounded),
-                          SizedBox(
-                            width: 15,
+
+                          FloatingActionButton(
+                            onPressed: () async {
+                              mails.add(new Mails(
+                                  messageContent: message.text,
+                                  subject: subject.text,
+                                  messageType: "sender"));
+                              var data = {
+                                'name': 'Raj Lad',
+                                'email': 'rajlad@gmail.com',
+                                'comment': message.text,
+                              };
+                              var res = await Api().postData(data);
+                              print("Response Status:");
+                              print(res.statusCode);
+                              print("Response Body:");
+                              print(res.body);
+                              var body = json.decode(res.body);
+                              print(body);
+                            },
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      const Color(0xFF000000),
+                                      const Color(0xFFFFFFFF),
+                                    ],
+                                  )),
+                              child: Icon(
+                                Icons.send_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -189,6 +240,7 @@ class _ComposeState extends State<Compose> {
                           children: [
                             TextField(
                               textCapitalization: TextCapitalization.words,
+                              controller: subject,
                               decoration: InputDecoration(
                                   hintText: "Enter the Subject..",
                                   hintStyle: TextStyle(color: Colors.black54),
@@ -201,6 +253,7 @@ class _ComposeState extends State<Compose> {
                             ),
                             TextField(
                               textAlign: TextAlign.justify,
+                              controller: message,
                               maxLines: null,
                               keyboardType: TextInputType.multiline,
                               textInputAction: TextInputAction.newline,
